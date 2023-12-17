@@ -26,7 +26,7 @@ public class TestBase {
         driver = new AndroidDriver(url, capabilities);
     }
 
-    // Setup environemtn for real device
+    // Setup environment for real device
     public static void Android_RealDevice_setUp() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "Xiaomi 11T");
