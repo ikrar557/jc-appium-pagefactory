@@ -24,7 +24,7 @@ public class AddNewRecordPage extends PageBase{
         try{
             click(closeButtonAlerts);
         } catch (NoSuchElementException e) {
-            System.out.println("Notifikasi sudah di setujui.");
+            System.out.println("Notifikasi sudah di tutup.");
         }
     }
 }
