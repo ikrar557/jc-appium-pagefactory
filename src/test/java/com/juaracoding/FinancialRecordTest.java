@@ -1,5 +1,6 @@
 package com.juaracoding;
 
+import com.beust.ah.A;
 import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -26,6 +27,24 @@ public class FinancialRecordTest extends TestBase{
         createInputPage.setExpenseCategory();
         createInputPage.enterAmount(amount);
         createInputPage.enterNotes(notes);
+    }
+
+    private void assertExpenseRecord(String notes, String amount, String day, String monthYear, String dayName, String type) {
+        Assert.assertEquals(createInputPage.getExpenseDescription(), notes);
+        Assert.assertEquals(createInputPage.getExpenseAmount(), amount);
+        Assert.assertEquals(createInputPage.getExpenseDay(), day);
+        Assert.assertEquals(createInputPage.getExpenseMonthYear(), monthYear);
+        Assert.assertEquals(createInputPage.getExpenseDayName(), dayName);
+        Assert.assertEquals(createInputPage.getExpenseType(), type);
+    }
+
+    private void assertIncomeRecord(String notes, String amount, String day, String monthYear, String dayName, String type) {
+        Assert.assertEquals(createInputPage.getIncomeDescription(), notes);
+        Assert.assertEquals(createInputPage.getIncomeAmount(), amount);
+        Assert.assertEquals(createInputPage.getIncomeDay(), day);
+        Assert.assertEquals(createInputPage.getIncomeMonthYear(), monthYear);
+        Assert.assertEquals(createInputPage.getIncomeDayName(), dayName);
+        Assert.assertEquals(createInputPage.getIncomeType(), type);
     }
 
     //TODO: Fix the code, so the date and category shouldn't be redundant and can be user defined
@@ -56,27 +75,20 @@ public class FinancialRecordTest extends TestBase{
         createInputPage = new CreateInputPage(driver);
     }
 
-    // TODO: Add test case negative if possible
-
     @Test(priority = 1)
-    public void testInputExpense(){
+    public void testInputExpense() {
         performExpenseRecordCreation("Expense", "30000", "Mencoba Expense Appium");
-        Assert.assertEquals(createInputPage.getDateValue(), "12 Des 2023");
-        Assert.assertEquals(createInputPage.getExpenseCategoryValue(), "Kesehatan");
-        Assert.assertEquals(createInputPage.getAmountValue(), "30,000");
-        Assert.assertEquals(createInputPage.getNotesValue(), "Mencoba Expense Appium");
         createInputPage.clickSaveButton();
+        assertExpenseRecord("Mencoba Expense Appium", "30.000", "12", "12.2023", "Selasa", "Kesehatan");
     }
 
     @Test(priority = 2)
-    public void testInputIncome(){
+    public void testInputIncome() {
         performIncomeRecordCreation("Income", "40000", "Mencoba Income Appium");
-        Assert.assertEquals(createInputPage.getDateValue(), "29 Nov 2023");
-        Assert.assertEquals(createInputPage.getIncomeCategoryValue(), "Penjualan");
-        Assert.assertEquals(createInputPage.getAmountValue(), "40,000");
-        Assert.assertEquals(createInputPage.getNotesValue(), "Mencoba Income Appium");
         createInputPage.clickSaveButton();
+        assertIncomeRecord("Mencoba Income Appium", "40.000", "29", "11.2023", "Rabu", "Penjualan");
     }
+
 
     @Test(priority = 3)
     public void testTitleMonthly(){

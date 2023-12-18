@@ -21,7 +21,8 @@ public class TestBase {
         capabilities.setCapability("app", System.getProperty("user.dir") + "/apps/catatan_keuangan_1.1.1.apk");
         capabilities.setCapability("appPackage", "com.chad.financialrecord");
         capabilities.setCapability("appActivity", "com.rookie.catatankeuangan.feature.splash.SplashActivity");
-        capabilities.setCapability("noReset", true);
+        capabilities.setCapability("noReset", false);
+        capabilities.setCapability("fullReset", false);
         capabilities.setCapability("autoGrantPermissions", true); // For auto allow the permission
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, capabilities);
@@ -37,7 +38,8 @@ public class TestBase {
         capabilities.setCapability("app", System.getProperty("user.dir") + "/apps/catatan_keuangan_1.1.1.apk");
         capabilities.setCapability("appPackage", "com.chad.financialrecord");
         capabilities.setCapability("appActivity", "com.rookie.catatankeuangan.feature.splash.SplashActivity");
-        capabilities.setCapability("noReset", true);
+        capabilities.setCapability("noReset", false);
+        capabilities.setCapability("fullReset", false);
         capabilities.setCapability("autoGrantPermissions", true);  // For auto allow the permission
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, capabilities);

@@ -53,6 +53,42 @@ public class CreateInputPage extends PageBase{
     @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvTitle\" and @text=\"Bulanan\"]")
     private MobileElement titleMonthly;
 
+    @FindBy(xpath ="//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDesc\" and @text=\"Mencoba Expense Appium\"]")
+    private MobileElement expenseDescription;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvAmount\" and @text=\"30.000\"]")
+    private MobileElement expenseAmount;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDateOne\" and @text=\"12\"]")
+    private MobileElement expenseDay;
+
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDateTwo\"])")
+    private MobileElement expenseMonthYear;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDateThree\" and @text=\"Selasa\"]")
+    private MobileElement expenseDayName;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvName\"]")
+    private MobileElement expenseType;
+
+    @FindBy(xpath ="//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDesc\" and @text=\"Mencoba Income Appium\"]")
+    private MobileElement incomeDescription;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvAmount\" and @text=\"40.000\"]")
+    private MobileElement incomeAmount;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDateOne\" and @text=\"29\"]")
+    private MobileElement incomeDay;
+
+    @FindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDateTwo\"])")
+    private MobileElement incomeMonthYear;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvDateThree\" and @text=\"Rabu\"]")
+    private MobileElement incomeDayName;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id=\"com.chad.financialrecord:id/tvName\"]")
+    private MobileElement incomeType;
+
     public void clickExpenseButton(){
         click(expenseButton);
     }
@@ -103,27 +139,55 @@ public class CreateInputPage extends PageBase{
         click(titleMonthly);
     }
 
-    public String getDateValue(){
-        return date.getText();
-    }
-
-    public String getExpenseCategoryValue(){
-        return expenseCategory.getText();
-    }
-
-    public String getIncomeCategoryValue(){
-        return incomeCategory.getText();
-    }
-    public String getAmountValue(){
-        return addAmount.getText();
-    }
-
-    public String getNotesValue(){
-        return addNotes.getText();
-    }
-
     public String getTitleMonthlyValue(){
         return titleMonthly.getText();
     }
 
+    public String getExpenseDescription(){
+        return expenseDescription.getText();
+    }
+
+    public String getExpenseAmount(){
+        return expenseAmount.getText();
+    }
+
+    public String getExpenseDay(){
+        return expenseDay.getText();
+    }
+
+    public String getExpenseMonthYear(){
+        return expenseMonthYear.getText();
+    }
+
+    public String getExpenseDayName(){
+        return expenseDayName.getText();
+    }
+
+    public String getExpenseType(){
+        return expenseType.getText();
+    }
+
+    public String getIncomeDescription(){
+        return incomeDescription.getText();
+    }
+
+    public String getIncomeAmount(){
+        return incomeAmount.getText();
+    }
+
+    public String getIncomeDay(){
+        return incomeDay.getText();
+    }
+
+    public String getIncomeMonthYear(){
+        return incomeMonthYear.getText();
+    }
+
+    public String getIncomeDayName(){
+        return incomeDayName.getText();
+    }
+
+    public String getIncomeType(){
+        return incomeType.getText();
+    }
 }
